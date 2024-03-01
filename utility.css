@@ -1,0 +1,68 @@
+.flex {
+    display: flex;
+}
+
+.justify-content {
+    justify-content: center;
+}
+
+.align-item {
+    align-items: center;
+}
+
+.invert {
+    filter: invert(1);
+}
+
+.bg-grey {
+    background-color: #0c0c0c;
+}
+
+.rounded {
+    border-radius: 10px;
+}
+
+.topRounded {
+  border-radius: 10px 10px 0 0;
+}
+
+.m-1 {
+    margin: 5px 0 0 5px;
+}
+
+.p-1 {
+    padding: 10px;
+}
+
+/* For Firefox */
+/* width */
+::-moz-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-moz-scrollbar-track {
+    background: #333;
+  }
+  
+  /* Handle */
+  ::-moz-scrollbar-thumb {
+    background: #666;
+  }
+  
+  /* For WebKit */
+  /* width */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #333;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #666;
+  }
+  
