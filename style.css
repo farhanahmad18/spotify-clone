@@ -17,6 +17,7 @@ body {
     width: 75vw;
     margin: 12px 0;
     background-color: #121212;
+    position: relative;
 }
 
 .home ul li {
@@ -144,4 +145,18 @@ body {
     position: absolute;
     top: 138px;
     right: 12px;
+}
+
+.playbar {
+    position: absolute;
+    bottom: 5px;
+    background-color: rgb(32, 51, 32);
+    padding: 10px;
+    width: 95%;
+}
+
+.songsbtn {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
