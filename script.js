@@ -22,12 +22,12 @@ async function main(){
 
     //Play first song 
     var audio = new Audio(songs[2])
-    // audio.play();
+    audio.play();
 
     audio.addEventListener("loadeddata", () => {
         let duration = audio.duration;
         console.log(duration);
     })
-} 
+}
 
-main()
+main();
