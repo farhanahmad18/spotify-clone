@@ -163,6 +163,10 @@ body {
     gap: 20px;
 }
 
+.songsbtn img {
+    cursor: pointer;
+}
+
 .songList {
     height: 500px;
     overflow: auto;
@@ -185,7 +189,7 @@ body {
     border-radius: 5px;
 }
 
-.songList .info {
+.songList .songinfo {
     font-size: 14px;
     width: 344px;
 }
@@ -202,12 +206,13 @@ body {
 }   
 
 .seekbar {
-    height: 2px;
+    height: 3px;
     width: 98%;
     background: white;
     border-radius: 10px;
     position: absolute;
     bottom: 3px;
+    cursor: pointer;
 }
 
 .circle {
@@ -219,4 +224,13 @@ body {
     bottom: 5px;
     left: 0%;
     transition: left 0.5s;
+}
+
+.abovebar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.songinfo, .songtime {
+    padding: 0 20px;
 }
