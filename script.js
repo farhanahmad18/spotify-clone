@@ -3,7 +3,7 @@ let currentSong = new Audio;
 function formatSeconds(seconds) {
 
     if (isNaN(seconds) || seconds < 0) {
-        return "Invalid input";
+        return "00:00";
     }
 
     var minutes = Math.floor(seconds / 60);
@@ -89,13 +89,24 @@ async function main() {
     //listen for timeupdate event
     currentSong.addEventListener("timeupdate", () => {
         document.querySelector(".songtime").innerHTML = `${formatSeconds(currentSong.currentTime)} / ${formatSeconds(currentSong.duration)}`
-        document.querySelector(".circle").style.left = (currentSong.currentTime / currentSong.duration)*100 + "%";
+        document.querySelector(".circle").style.left = (currentSong.currentTime / currentSong.duration) * 100 + "%";
     })
 
-    document.querySelector(".seekbar").addEventListener("click", e=>{
-        let percent = (e.offsetX/e.target.getBoundingClientRect().width) * 100
-        document.querySelector(".circle").style.left =percent + "%"; 
+    //Add an event listener to move circle on seekbar
+    document.querySelector(".seekbar").addEventListener("click", e => {
+        let percent = (e.offsetX / e.target.getBoundingClientRect().width) * 100
+        document.querySelector(".circle").style.left = percent + "%";
         currentSong.currentTime = percent / 100 * currentSong.duration;
+    })
+
+    //Add an event listener to open hamburger
+    document.querySelector(".hamburger").addEventListener("click", ()=> {
+        document.querySelector(".left").style.left = "0%";
+    })
+
+    //Add an event listener to close hamburger
+    document.querySelector(".cross").addEventListener("click", ()=> {
+        document.querySelector(".left").style.left = "-120%";
     })
 }
 main();

@@ -13,6 +13,10 @@ body {
     padding: 10px;
 }
 
+.cross {
+    display: none;
+}
+
 .right {
     width: 75vw;
     margin: 12px 0;
@@ -107,7 +111,7 @@ body {
 }
 
 .mainBody {
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .spotifyPlaylist {
@@ -173,6 +177,10 @@ body {
     margin-bottom: 44px;
 }
 
+.hamburger {
+    display: none;
+}
+
 .songList ul {
     padding: 0px 12px;
 }
@@ -233,4 +241,36 @@ body {
 
 .songinfo, .songtime {
     padding: 0 20px;
+}
+
+@media (max-width: 1200px) {
+    .left {
+        position: absolute;
+        left: -120%;
+        transition: all 0.3s;
+        z-index: 1;
+        width: 370px;
+        background-color: black;
+    }
+
+    .left .cross {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        width: 35px;
+        display: inline;
+    }
+
+    .right {
+        width: 100vw;
+    }
+
+    .playbar {
+        width: 96vw;
+    }
+
+    .hamburger {
+        display: inline;
+        cursor: pointer;
+    }
 }
