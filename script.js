@@ -108,5 +108,28 @@ async function main() {
     document.querySelector(".cross").addEventListener("click", ()=> {
         document.querySelector(".left").style.left = "-120%";
     })
+
+    //Add an event listener to play previous songs
+    backward.addEventListener("click", ()=> {
+        let index = songs.indexOf(currentSong.src.split("/").slice(-1) [0]);
+        if((index-1) >= 0) {
+            playMusic(songs[index-1]);
+        }
+        else {
+                    playMusic(songs[songs.length - 1]);
+                }
+    })
+
+    //Add an event listener to play next songs
+    forward.addEventListener("click", ()=> {
+        let index = songs.indexOf(currentSong.src.split("/").slice(-1) [0]);
+        if((index+1) < songs.length) {
+            playMusic(songs[index+1]);
+        }
+        else {
+            playMusic(songs[0]);
+        }
+    })
+
 }
 main();
