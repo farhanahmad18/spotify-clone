@@ -1,3 +1,7 @@
+:root {
+    --a: 0;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -139,6 +143,13 @@ body {
     border-radius: 5px;
     background-color: #252525;
     position: relative;
+    transition: all 0.9s;
+}
+
+.card:hover {
+    background-color: rgb(62, 61, 61);
+    cursor: pointer;
+    --a: 1;
 }
 
 .card > * {
@@ -157,6 +168,12 @@ body {
     position: absolute;
     top: 138px;
     right: 12px;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    position: absolute;
+    opacity: var(--a);
+    transition: all 1s ease-out;
 }
 
 .playbar {
@@ -206,6 +223,10 @@ body {
     width: auto;
 }
 
+.info div {
+    word-break: break-all;
+}
+
 .playnow {
     display: flex;
     justify-content: center;
@@ -247,6 +268,19 @@ body {
     padding: 0 15px;
 }
 
+.vol {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.timevol {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 @media (max-width: 1350px) {
     .left {
         position: absolute;
@@ -285,6 +319,11 @@ body {
 }
 
 @media (max-width: 412px) {
+
+    .left {
+        padding: 0;
+    }
+
     .right {
         margin: 0;
     }
@@ -298,9 +337,13 @@ body {
         width: 90vw;
     }
 
+    .playButton {
+        bottom: 2px
+    }
+
     .abovebar {
         flex-direction: column;
-        gap: 30px;
+        gap: 15px;
         align-items: center;        
     }
 
@@ -310,5 +353,13 @@ body {
 
     .seekbar {
         width: calc(100vw - 65px);
+    }
+
+    .timevol {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-direction: column;
+        gap: 10px;
     }
 }

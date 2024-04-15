@@ -1,4 +1,5 @@
 let currentSong = new Audio;
+let currFolder;
 
 function formatSeconds(seconds) {
 
@@ -17,9 +18,10 @@ function formatSeconds(seconds) {
     return formattedMinutes + ":" + formattedSeconds;
 }
 
-async function getSongs() {
+async function getSongs(folder) {
 
-    let a = await fetch("http://127.0.0.1:3000/songs/")
+    currFolder = folder;
+    let a = await fetch(`http://127.0.0.1:3000/${folder}/`)
     let response = await a.text();
     let div = document.createElement("div")
     div.innerHTML = response;
@@ -28,7 +30,7 @@ async function getSongs() {
     for (let index = 0; index < as.length; index++) {
         const element = as[index];
         if (element.href.endsWith(".mp3")) {
-            songs.push(element.href.split("/songs/")[1])
+            songs.push(element.href.split(`/${folder}/`)[1])
         }
 
     }
@@ -36,7 +38,7 @@ async function getSongs() {
 }
 
 const playMusic = (track, pause = false) => {
-    currentSong.src = "/songs/" + track;
+    currentSong.src = `/${currFolder}/` + track;
     if (!pause) {
         currentSong.play();
         play.src = "pause.svg"
@@ -47,7 +49,7 @@ const playMusic = (track, pause = false) => {
 async function main() {
 
     //Get list of all the songs 
-    let songs = await getSongs();
+    let songs = await getSongs("/songs/ncs");
     playMusic(songs[0], true);
 
     //Show all the songs in the playlist
@@ -129,6 +131,12 @@ async function main() {
         else {
             playMusic(songs[0]);
         }
+    })
+
+    //Add an event listener to range 
+    document.querySelector(".range").getElementsByTagName("input")[0].addEventListener("change", (e)=>{
+        console.log("Setting Volume to ", e.target.value); 
+        currentSong.volume = parseInt(e.target.value)/100
     })
 
 }
